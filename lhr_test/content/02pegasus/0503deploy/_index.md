@@ -34,7 +34,7 @@ endpoint_ecr_image_path:  847380964353.dkr.ecr.ap-northeast-1.amazonaws.com/pega
 
 ![](../pics/02pegasus/14.png)
 
-当状态变为`InServe`即代表部署完成
+当状态变为`InService`即代表部署完成
 
 在部署结束后，看到SageMaker控制台生成了对应的endpoint,可以使用如下客户端代码测试调用
 

@@ -9,7 +9,7 @@ draft: false
 首先打包镜像并推送
 
 ```
-!sh build_and push.sh pegasus-hp
+!sh build_and_push.sh pegasus-hp
 ```
 然后部署一个预置的endpoint
 

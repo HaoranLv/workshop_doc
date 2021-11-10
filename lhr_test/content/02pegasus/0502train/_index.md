@@ -51,5 +51,5 @@ print('模型预测:',summarizer(df.loc[0,'text'], max_length=50)[0]['summary_te
 ```
 原文: Germany on Wednesday accused Vietnam of kidnapping a former Vietnamese oil executive Trinh Xuan Thanh, who allegedly sought asylum in Berlin, and taking him home to face accusations of corruption. Germany expelled a Vietnamese intelligence officer over the suspected kidnapping and demanded that Vietnam allow Thanh to return to Germany. However, Vietnam said Thanh had returned home by himself.
 真实标签: Germany accuses Vietnam of kidnapping asylum seeker 
-模型预测: Germany accuses Vietnam of kidnapping ex-oil exec, taking him home
+模型预测: Germany accuses Vietnam of kidnapping asylum seeker 
 ```

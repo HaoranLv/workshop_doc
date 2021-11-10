@@ -6,7 +6,7 @@
 <meta name=description content="My AWS Workshop">
 <meta name=author content="Jane Architect">
 <link rel=icon href=./images/favicon.png type=image/png>
-<title>Tags :: SpotBot Workshop</title>
+<title>动手实验2：利用huggingface进行文本分类模型训练 :: SpotBot Workshop</title>
 <link href=./css/nucleus.css rel=stylesheet>
 <link href=./css/fontawesome-all.min.css rel=stylesheet>
 <link href=./css/hybrid.css rel=stylesheet>
@@ -21,7 +21,7 @@
 <script src=./js/jquery-3.3.1.min.js></script>
 <style>:root #header+#content>#left>#rlblock_left{display:none!important}:not(pre)>code+span.copy-to-clipboard{display:none}</style>
 </head>
-<body data-url=./tags.html>
+<body data-url=./03classification.html>
 <nav id=sidebar class=showVisitedLinks>
 <div id=header-wrapper>
 <div id=header>
@@ -99,7 +99,9 @@ Pegasus模型部署
 </li>
 </ul>
 </li>
-<li data-nav-id=/03classification.html title=动手实验2：利用huggingface进行文本分类模型训练 class=dd-item>
+<li data-nav-id=/03classification.html title=动手实验2：利用huggingface进行文本分类模型训练 class="dd-item
+parent
+active">
 <a href=./03classification.html>
 动手实验2：利用huggingface进行文本分类模型训练
 <i class="fas fa-check read-icon"></i>
@@ -130,11 +132,16 @@ Pegasus模型部署
 </span>
 <span id=toc-menu><i class="fas fa-list-alt"></i></span>
 <span class=links>
-<a href=./>AWS Datalab-文档摘要</a> > Tags
+<a href=./>AWS Datalab-文档摘要</a> > 动手实验2：利用huggingface进行文本分类模型训练
 </span>
 </div>
 <div class=progress>
 <div class=wrapper>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#quick-start>quick start</a></li>
+</ul>
+</nav>
 </div>
 </div>
 </div>
@@ -143,16 +150,87 @@ Pegasus模型部署
 </div>
 <div id=body-inner>
 <h1>
-tag ::
-Tags
+动手实验2：利用huggingface进行文本分类模型训练
 </h1>
+<p>文本分类任务作为最基础的任务，我们既可以用机器学习的方式，也可以用深度学习的方式进行训练，部署。</p>
+<p>下面的结果为我们模型对比实验的结果：</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Train sample</th>
+<th>Num_class</th>
+<th>Train loss</th>
+<th>instance</th>
+<th>train-time</th>
+<th>epoch</th>
+<th>eval loss</th>
+<th>eval f1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bert-base</td>
+<td>180000</td>
+<td>31</td>
+<td>0.09</td>
+<td>ml.p3.16xlarge</td>
+<td>8h</td>
+<td>5</td>
+<td>1.26</td>
+<td>0.67</td>
+</tr>
+<tr>
+<td>Distillbert-base</td>
+<td>180000</td>
+<td>31</td>
+<td>0.1489</td>
+<td>ml.p3.16xlarge</td>
+<td>3h</td>
+<td>5</td>
+<td>1.26</td>
+<td>0.67</td>
+</tr>
+<tr>
+<td>Xlm-Roberta-base</td>
+<td>180000</td>
+<td>31</td>
+<td>0.9821</td>
+<td>ml.p3.16xlarge</td>
+<td>40min</td>
+<td>1</td>
+<td>0.78</td>
+<td>0.79</td>
+</tr>
+<tr>
+<td>Lightgbm (benchmark)</td>
+<td>180000</td>
+<td>31</td>
+<td>0.56</td>
+<td>ml.m5.xlarge</td>
+<td>40min</td>
+<td>5</td>
+<td>1.19</td>
+<td>0.71</td>
+</tr>
+</tbody>
+</table>
+<h2 id=quick-start>quick start</h2>
+<p>下载代码</p>
+<pre tabindex=0><code>cd SageMaker
+git clone https://github.com/jackie930/notebooks.git
+</code></pre><p>接下来我们进行模型的训练实验</p>
 <ul>
+<li>机器学习模型： <code>/home/ec2-user/SageMaker/notebooks/sagemaker/14_train_text_calssfication/train-huggingface.ipynb</code>运行</li>
+<li>基于transformer的深度学习模型 <code>/home/ec2-user/SageMaker/notebooks/sagemaker/14_train_text_calssfication/lightgbm.ipynb</code>运行</li>
 </ul>
+<p>我们可以看到，通过<code>huggingface api</code>，我们可以通过更换不同的模型pretrain训练得到不同的结果。同样数据集，在<code>roberta</code>架构下表现最好</p>
 <footer class=footline>
 </footer>
 </div>
 </div>
 <div id=navigation>
+<a class="nav nav-prev" href=./02pegasus/0503deploy.html title=Pegasus模型部署> <i class="fa fa-chevron-left"></i></a>
 <a class="nav nav-next" href=./01introduction.html title=Introduction style=margin-right:0><i class="fa fa-chevron-right"></i></a>
 </div>
 </section>
